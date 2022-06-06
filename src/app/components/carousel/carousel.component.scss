@@ -1,0 +1,36 @@
+.carousel-item {
+  box-shadow: 0 3px 10px rgba(63, 63, 63, 0.1);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  & .img-container {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    height: 250px;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  img {
+    height: 250px;
+  }
+  .data {
+    width: 90%;
+    margin: 1rem auto;
+    font-size: 1.5rem;
+  }
+}
+.carousel-control-next,
+.carousel-control-prev {
+  height: 250px;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+.carousel-control-next {
+  right: 5%;
+}
+.carousel-control-prev {
+  left: 5%;
+}

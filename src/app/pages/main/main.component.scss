@@ -1,0 +1,31 @@
+@import "../../styles/abstract/variables";
+.home-page {
+  min-height: 100vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 100px 1fr 130px;
+}
+.main {
+  overflow-y: scroll;
+  background-color: $bg-light;
+}
+
+.header {
+  background-color: $bg-light;
+}
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}
+.carousel {
+  margin-top: 50px;
+}
+.proyects {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  img {
+    width: 100%;
+  }
+}

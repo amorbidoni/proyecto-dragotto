@@ -1,0 +1,28 @@
+<div class="componenet">
+  <div
+    class="overlay"
+    *ngIf="menuOpen"
+    [@overlayAnimation]
+    (click)="handleNavBar()"
+  ></div>
+  <div class="nav-bar__toggle" (click)="handleNavBar()">
+    <button class="nav-bar__toggle--btn" [ngClass]="menuOpen ? 'active' : ''">
+      <span class="nav-bar__toggle--line top">&nbsp;</span>
+      <span class="nav-bar__toggle--line middle">&nbsp;</span>
+      <span class="nav-bar__toggle--line bottom">&nbsp;</span>
+    </button>
+  </div>
+  <nav class="nav-bar" *ngIf="menuOpen" [@dropRightAnimation]>
+    <ul class="nav-bar__container">
+      <li class="nav-bar__item animated active">
+        <p>Inicio</p>
+      </li>
+      <li class="nav-bar__item animated">
+        <p>Obras</p>
+      </li>
+      <li class="nav-bar__item animated">
+        <p>Contacto</p>
+      </li>
+    </ul>
+  </nav>
+</div>
