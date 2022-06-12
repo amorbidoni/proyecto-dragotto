@@ -7,19 +7,20 @@
       </svg>
     </button>
   </div>
+  <div></div>
   <nav class="nav" *ngIf="menuOpen" [@dropRightAnimation]>
     <ul class="nav__list">
-      <li class="nav__item" [class]="!alwaysVisible && 'animated'">
-        <a [routerLink]="['/main']">INICIO</a>
+      <li class="nav__item animated" routerLinkActive="active-link">
+        <a [routerLink]="['/main', 'navigation']">INICIO</a>
       </li>
-      <li class="nav__item" [class]="!alwaysVisible && 'animated'">
-        <a [routerLink]="['/proyects']">Galería</a>
+      <li class="nav__item animated" routerLinkActive="active-link">
+        <a [routerLink]="['/main', 'proyects']">GALERÍA</a>
       </li>
-      <li class="nav__item" [class]="!alwaysVisible && 'animated'">
+      <li class="nav__item animated" routerLinkActive="active-link">
         <a [routerLink]="['/path']">PROYECTOS</a>
       </li>
-      <li class="nav__item" [class]="!alwaysVisible && 'animated'">
-        <a [routerLink]="['/path']">CONTACTO</a>
+      <li class="nav__item animated" routerLinkActive="active-link">
+        <a [routerLink]="['/main', 'contact']">CONTACTO</a>
       </li>
     </ul>
   </nav>

@@ -7,6 +7,7 @@ import { ComponentsModule } from '../components/components.module';
 import { ProyectsComponent } from './proyects/proyects.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ProyectItemComponent } from './proyects/proyectItem.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ProyectItemComponent } from './proyects/proyectItem.component';
     ProyectsComponent,
     NavigationComponent,
     ProyectItemComponent,
+    ContactComponent,
   ],
   imports: [CommonModule, PagesRoutingModule, ComponentsModule],
   exports: [MainComponent],
