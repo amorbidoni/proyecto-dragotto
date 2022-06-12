@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { PagesRoutingModule } from './pages-routing.module';
 import { MainComponent } from './main/main.component';
 import { ComponentsModule } from '../components/components.module';
+import { ProyectsComponent } from './proyects/proyects.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { ProyectItemComponent } from './proyects/proyectItem.component';
 
 @NgModule({
-  declarations: [MainComponent],
-  imports: [
-    CommonModule,
-    PagesRoutingModule,
-    ComponentsModule,
-    BrowserAnimationsModule,
+  declarations: [
+    MainComponent,
+    ProyectsComponent,
+    NavigationComponent,
+    ProyectItemComponent,
   ],
+  imports: [CommonModule, PagesRoutingModule, ComponentsModule],
   exports: [MainComponent],
 })
 export class PagesModule {}

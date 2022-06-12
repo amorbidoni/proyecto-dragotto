@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DropRightAnimation } from '../../animations/DropRightAnimation';
 import { OverlayAnimation } from '../../animations/OverlayAnimation';
 
@@ -9,10 +9,13 @@ import { OverlayAnimation } from '../../animations/OverlayAnimation';
   animations: [DropRightAnimation, OverlayAnimation],
 })
 export class NavBarComponent implements OnInit {
+  @Input() alwaysVisible: boolean = true;
   menuOpen: boolean = false;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.alwaysVisible ? (this.menuOpen = true) : (this.menuOpen = false);
+  }
 
   handleNavBar() {
     this.menuOpen = !this.menuOpen;

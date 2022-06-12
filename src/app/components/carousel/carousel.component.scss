@@ -1,19 +1,21 @@
+// @import "../../styles/abstract/variables";
+
 .carousel-item {
-  box-shadow: 0 3px 10px rgba(63, 63, 63, 0.1);
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  box-sizing: border-box;
   & .img-container {
     display: flex;
     justify-self: center;
     align-items: center;
-    height: 250px;
+    height: 100vh;
     overflow: hidden;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
   }
 
   img {
-    height: 250px;
+    height: 100vh;
+    // width: 100%;
+    filter: brightness(0.9) grayscale(1) contrast(2);
   }
   .data {
     width: 90%;
@@ -23,14 +25,14 @@
 }
 .carousel-control-next,
 .carousel-control-prev {
-  height: 250px;
+  top: 0;
+  height: 100vh;
   &:hover {
     background-color: rgba(0, 0, 0, 0.3);
   }
 }
-.carousel-control-next {
-  right: 5%;
-}
-.carousel-control-prev {
-  left: 5%;
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  width: 6rem;
+  height: 6rem;
 }

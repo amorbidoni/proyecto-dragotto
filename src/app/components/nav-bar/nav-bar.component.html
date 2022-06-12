@@ -1,27 +1,25 @@
-<div class="componenet">
-  <div
-    class="overlay"
-    *ngIf="menuOpen"
-    [@overlayAnimation]
-    (click)="handleNavBar()"
-  ></div>
-  <div class="nav-bar__toggle" (click)="handleNavBar()">
-    <button class="nav-bar__toggle--btn" [ngClass]="menuOpen ? 'active' : ''">
-      <span class="nav-bar__toggle--line top">&nbsp;</span>
-      <span class="nav-bar__toggle--line middle">&nbsp;</span>
-      <span class="nav-bar__toggle--line bottom">&nbsp;</span>
+<div class="nav-bar-container">
+  <div class="toggle" *ngIf="!alwaysVisible">
+    <button class="toggle__btn" (click)="handleNavBar()">
+      Menú
+      <svg class="toggle__btn--icon" [class]="menuOpen ? 'open' : ''">
+        <use xlink:href="../../../assets/icons/sprite.svg#angle-right"></use>
+      </svg>
     </button>
   </div>
-  <nav class="nav-bar" *ngIf="menuOpen" [@dropRightAnimation]>
-    <ul class="nav-bar__container">
-      <li class="nav-bar__item animated active">
-        <p>Inicio</p>
+  <nav class="nav" *ngIf="menuOpen" [@dropRightAnimation]>
+    <ul class="nav__list">
+      <li class="nav__item" [class]="!alwaysVisible && 'animated'">
+        <a [routerLink]="['/main']">INICIO</a>
       </li>
-      <li class="nav-bar__item animated">
-        <p>Obras</p>
+      <li class="nav__item" [class]="!alwaysVisible && 'animated'">
+        <a [routerLink]="['/proyects']">Galería</a>
       </li>
-      <li class="nav-bar__item animated">
-        <p>Contacto</p>
+      <li class="nav__item" [class]="!alwaysVisible && 'animated'">
+        <a [routerLink]="['/path']">PROYECTOS</a>
+      </li>
+      <li class="nav__item" [class]="!alwaysVisible && 'animated'">
+        <a [routerLink]="['/path']">CONTACTO</a>
       </li>
     </ul>
   </nav>

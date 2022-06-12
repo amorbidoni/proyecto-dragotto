@@ -1,0 +1,25 @@
+@import "../../styles/abstract/variables";
+.proyects-container {
+  background-color: $bg-light;
+  padding-top: 50px;
+}
+.nav-bar {
+  position: fixed;
+  top: 20px;
+  right: 0;
+}
+.proyect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 100vw;
+  padding: 20px;
+
+  box-sizing: border-box;
+  &__img {
+    max-width: 100%;
+    object-fit: contain;
+    max-height: 100%;
+  }
+}

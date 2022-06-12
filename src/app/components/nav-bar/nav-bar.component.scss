@@ -1,112 +1,61 @@
 @import "../../styles/abstract/variables";
-.component {
+.nav-bar-container {
   position: relative;
-}
-.overlay {
   width: 100vw;
-  height: 100vh;
-  position: absolute;
-  z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(5px);
-}
-
-.nav-bar {
+  color: black;
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
   box-sizing: border-box;
-  &__container {
-    background-color: $bg-light;
+}
+.toggle {
+  &__btn {
+    background: linear-gradient(
+      to right,
+      rgba($bg-light, 0.7) 70%,
+      transparent 100%
+    );
+    border: none;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    padding: 0 25px 0 5px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    &--icon {
+      display: inline-block;
+      transition: transform 0.2s;
+      color: #ccc;
+      width: 8px;
+      height: 24px;
+      margin-left: 7px;
+      &.open {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+.nav {
+  &__list {
     list-style: none;
-    height: 100vh;
-    width: 270px;
-    position: relative;
-    z-index: 1009;
-    padding-top: 85px;
-    padding-left: 30px;
   }
   &__item {
-    color: $color-mid-grey;
-    font-size: 3.2rem;
-    padding: 5px 0;
+    background: linear-gradient(
+      to right,
+      rgba($bg-light, 0.7) 70%,
+      transparent 100%
+    );
+    width: fit-content;
+    padding: 0 25px 0 5px;
     margin: 5px 0;
-    cursor: pointer;
-    &.active {
-      color: $color-dark-grey;
-    }
-    &.active p::before {
-      width: 100%;
-      opacity: 1;
-    }
-
-    p {
-      position: relative;
-      display: inline;
-      margin: 0;
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        width: 0.1px;
-        opacity: 0;
-        height: 2px;
-        background-color: $color-dark-grey;
-        transition: opacity 0.1s, width 0.2s;
-      }
-    }
-  }
-  &__item:hover p::before {
-    width: 100%;
-    opacity: 1;
-  }
-
-  &__toggle {
-    position: absolute;
-    top: 11px;
-    left: 16px;
-    z-index: 1010;
-    cursor: pointer;
-    height: 43px;
-    width: 43px;
-
-    &--btn {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: rgba($bg-light, 0.3);
-      backdrop-filter: blur(5px);
-      border: none;
-      height: 43px;
-      width: 43px;
-      cursor: pointer;
-    }
-    &--line {
-      width: 3rem;
-      height: 2px;
-      background-color: $color-dark-grey;
-      display: inline-block;
-      margin: 3px auto;
-      transform-origin: center;
-      transition: transform 0.5s, margin 0.1s;
-      &.middle {
-        opacity: 1;
-      }
-    }
-    &--btn:hover &--line,
-    &--btn.active &--line {
-      margin: 4px auto;
-    }
-    &--btn.active &--line {
-      &.top {
-        transform: rotate(135deg);
-        margin: -7px auto;
-      }
-      &.middle {
-        opacity: 0;
-      }
-      &.bottom {
-        transform: rotate(-135deg);
-        margin: -5px auto;
-      }
+    a {
+      list-style: none;
+      color: inherit;
+      text-decoration: none;
+      text-transform: uppercase;
     }
   }
 }
