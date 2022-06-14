@@ -1,22 +1,23 @@
 @import "../../styles/abstract/variables";
+@import "../../styles/abstract/mixins";
 .nav-bar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
   position: relative;
   width: 100vw;
   color: black;
   font-size: 2rem;
   font-weight: 700;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 5%;
   box-sizing: border-box;
 }
 .toggle {
+  @include respond(tab-land) {
+    display: none;
+  }
   &__btn {
-    background: linear-gradient(
-      to right,
-      rgba($bg-light, 0.7) 70%,
-      transparent 100%
-    );
+    background: $bg-gradient;
     border: none;
     font-size: inherit;
     font-weight: inherit;
@@ -24,16 +25,32 @@
     padding: 0 25px 0 5px;
     text-transform: uppercase;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    &--icon {
-      display: inline-block;
-      transition: transform 0.2s;
-      color: #ccc;
-      width: 8px;
-      height: 24px;
-      margin-left: 7px;
-      &.open {
-        transform: rotate(90deg);
+    &--line {
+      width: 40px;
+      height: 3px;
+      background-color: black;
+      margin: 5px auto;
+      &-1 {
+        transition: 0.5s;
+        &.open {
+          transform: rotate(-45deg) translate(-4px, -4px);
+          transform-origin: right;
+        }
+      }
+      &-2 {
+        transition: 0.5s;
+        &.open {
+          opacity: 0;
+        }
+      }
+      &-3 {
+        transition: 0.5s;
+        &.open {
+          transform: rotate(45deg) translate(-2px, 6px);
+          transform-origin: right;
+        }
       }
     }
   }
@@ -41,24 +58,60 @@
 .nav {
   position: relative;
   z-index: 1000;
+  background: $bg-gradient;
   &__list {
     list-style: none;
+    width: 100vw;
+    backdrop-filter: blur(3px);
+    margin: 0;
+    padding: 10px 0;
   }
   &__item {
-    background: linear-gradient(
-      to right,
-      rgba($bg-light, 0.5) 70%,
-      transparent 100%
-    );
-    width: fit-content;
+    text-align: right;
     margin: 5px 0;
     cursor: pointer;
     &.active-link {
-      background: linear-gradient(
-        to right,
-        rgba($bg-light, 1) 70%,
-        transparent 100%
-      );
+      position: relative;
+      a::before {
+        content: "";
+        width: 22px;
+        height: 2px;
+        background-color: black;
+        position: absolute;
+        bottom: 0;
+        left: 6px;
+      }
+    }
+    a {
+      position: relative;
+      padding: 0 25px 0 5px;
+      list-style: none;
+      color: inherit;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+}
+.nav-tablet {
+  display: none;
+
+  @include respond(tab-land) {
+    display: block;
+    z-index: 1000;
+  }
+  position: relative;
+  z-index: 1000;
+  &__list {
+    list-style: none;
+    display: flex;
+  }
+  &__item {
+    background: $bg-gradient;
+    width: fit-content;
+    margin: 5px 5px;
+    cursor: pointer;
+    &.active-link {
+      background: $bg-gradient-3;
       position: relative;
       &::before {
         content: "";

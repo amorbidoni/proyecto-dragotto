@@ -1,26 +1,40 @@
 <div class="nav-bar-container">
   <div class="toggle" *ngIf="!alwaysVisible">
     <button class="toggle__btn" (click)="handleNavBar()">
-      Menú
-      <svg class="toggle__btn--icon" [class]="menuOpen ? 'open' : ''">
-        <use xlink:href="../../../assets/icons/sprite.svg#angle-right"></use>
-      </svg>
+      <span
+        class="toggle__btn--line toggle__btn--line-1"
+        [ngClass]="menuOpen ? 'open' : ''"
+      ></span>
+      <span
+        class="toggle__btn--line toggle__btn--line-2"
+        [ngClass]="menuOpen ? 'open' : ''"
+      ></span>
+      <span
+        class="toggle__btn--line toggle__btn--line-3"
+        [ngClass]="menuOpen ? 'open' : ''"
+      ></span>
     </button>
   </div>
   <div></div>
   <nav class="nav" *ngIf="menuOpen" [@dropRightAnimation]>
     <ul class="nav__list">
-      <li class="nav__item animated" routerLinkActive="active-link">
-        <a [routerLink]="['/main', 'navigation']">INICIO</a>
+      <li
+        *ngFor="let link of navBarLinks"
+        class="nav__item animated"
+        routerLinkActive="active-link"
+      >
+        <a [routerLink]="link.route">{{ link.name }}</a>
       </li>
-      <li class="nav__item animated" routerLinkActive="active-link">
-        <a [routerLink]="['/main', 'proyects']">GALERÍA</a>
-      </li>
-      <li class="nav__item animated" routerLinkActive="active-link">
-        <a [routerLink]="['/path']">PROYECTOS</a>
-      </li>
-      <li class="nav__item animated" routerLinkActive="active-link">
-        <a [routerLink]="['/main', 'contact']">CONTACTO</a>
+    </ul>
+  </nav>
+  <nav class="nav-tablet" *ngIf="navTabletVisible">
+    <ul class="nav-tablet__list">
+      <li
+        *ngFor="let link of navBarLinks"
+        class="nav-tablet__item animated"
+        routerLinkActive="active-link"
+      >
+        <a [routerLink]="link.route">{{ link.name }}</a>
       </li>
     </ul>
   </nav>

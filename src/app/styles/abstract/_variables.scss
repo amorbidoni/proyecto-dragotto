@@ -6,5 +6,20 @@ $color-white: #fff;
 $color-black: #000;
 
 $bg-light: #fcfafd;
+$bg-gradient: linear-gradient(
+  to right,
+  rgba($bg-light, 0.5) 70%,
+  transparent 100%
+);
+$bg-gradient-2: linear-gradient(
+  to right,
+  rgba($bg-light, 0.7) 70%,
+  transparent 100%
+);
+$bg-gradient-3: linear-gradient(
+  to right,
+  rgba($bg-light, 1) 70%,
+  transparent 100%
+);
 // FONT
 $font-koulen: "Koulen", cursive;

@@ -10,6 +10,7 @@ import { OverlayAnimation } from '../../animations/OverlayAnimation';
 })
 export class NavBarComponent implements OnInit {
   @Input() alwaysVisible: boolean = true;
+  @Input() navTabletVisible: boolean = true;
   menuOpen: boolean = false;
   constructor() {}
 
@@ -21,4 +22,22 @@ export class NavBarComponent implements OnInit {
     this.menuOpen = !this.menuOpen;
   }
   handleNavBtnAnimation() {}
+  navBarLinks = [
+    {
+      name: 'INICIO',
+      route: ['/main', 'navigation'],
+    },
+    {
+      name: 'Proyectos',
+      route: ['/main', 'proyects'],
+    },
+    // {
+    //   name: 'PROYECTOS',
+    //   route: ['/path'],
+    // },
+    {
+      name: 'CONTACTO',
+      route: ['/main', 'contact'],
+    },
+  ];
 }
