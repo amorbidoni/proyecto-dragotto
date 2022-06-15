@@ -26,6 +26,7 @@
         <a
           [routerLink]="link.route"
           [style.color]="isColorWhite ? 'white' : 'inherit'"
+          [class]="isColorWhite ? 'line line-white' : 'line line-black'"
           >{{ link.name }}</a
         >
       </li>
@@ -38,7 +39,12 @@
         class="nav-tablet__item animated"
         routerLinkActive="active-link"
       >
-        <a [routerLink]="link.route">{{ link.name }}</a>
+        <a
+          [routerLink]="link.route"
+          [style.color]="isColorWhite ? 'white' : 'inherit'"
+          [class]="isColorWhite ? 'line line-white' : 'line line-black'"
+          >{{ link.name }}</a
+        >
       </li>
     </ul>
   </nav>
