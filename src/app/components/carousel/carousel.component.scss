@@ -13,13 +13,12 @@
   }
 
   img {
-    height: 100vh;
+    min-height: 100vh;
+    min-width: 100vw;
+    height: auto;
+    width: auto;
     filter: brightness(0.9) grayscale(1);
-    @include respond(tab-land) {
-      width: 100%;
-      min-height: 100vh;
-      height: auto;
-    }
+    object-fit: cover;
   }
   .data {
     width: 90%;
