@@ -1,4 +1,4 @@
-// @import "../../styles/abstract/variables";
+@import "../../styles/abstract/mixins";
 
 .carousel-item {
   box-sizing: border-box;
@@ -14,8 +14,12 @@
 
   img {
     height: 100vh;
-    // width: 100%;
     filter: brightness(0.9) grayscale(1) contrast(2);
+    @include respond(tab-land) {
+      width: 100%;
+      min-height: 100vh;
+      height: auto;
+    }
   }
   .data {
     width: 90%;

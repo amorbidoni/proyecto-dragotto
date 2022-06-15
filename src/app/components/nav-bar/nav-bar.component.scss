@@ -32,21 +32,19 @@
       height: 3px;
       background-color: black;
       margin: 5px auto;
+      transition: transform 2.5s;
       &-1 {
-        transition: 0.5s;
         &.open {
           transform: rotate(-45deg) translate(-4px, -4px);
           transform-origin: right;
         }
       }
       &-2 {
-        transition: 0.5s;
         &.open {
           opacity: 0;
         }
       }
       &-3 {
-        transition: 0.5s;
         &.open {
           transform: rotate(45deg) translate(-2px, 6px);
           transform-origin: right;
@@ -59,12 +57,15 @@
   position: relative;
   z-index: 1000;
   background: $bg-gradient;
+  @include respond(tab-land) {
+    background: linear-gradient(to left, rgba(black, 0.2) 20%, transparent 30%);
+  }
   &__list {
     list-style: none;
     width: 100vw;
     backdrop-filter: blur(3px);
     margin: 0;
-    padding: 10px 0;
+    padding: 10px 5% 10px 0;
   }
   &__item {
     text-align: right;
@@ -89,6 +90,16 @@
       color: inherit;
       text-decoration: none;
       text-transform: uppercase;
+      font-size: 2rem;
+      background: transparent;
+      color: white;
+
+      &:hover {
+        background: $bg-gradient;
+      }
+      @include respond(tab-land) {
+        font-size: 3.5rem;
+      }
     }
   }
 }

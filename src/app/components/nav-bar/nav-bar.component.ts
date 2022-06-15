@@ -11,6 +11,7 @@ import { OverlayAnimation } from '../../animations/OverlayAnimation';
 export class NavBarComponent implements OnInit {
   @Input() alwaysVisible: boolean = true;
   @Input() navTabletVisible: boolean = true;
+  @Input() isColorWhite: boolean = false;
   menuOpen: boolean = false;
   constructor() {}
 
