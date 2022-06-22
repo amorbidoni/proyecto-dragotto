@@ -3,9 +3,11 @@
     <app-nav-bar [alwaysVisible]="false"></app-nav-bar>
   </div>
   <div></div>
-  <div class="proyects__container">
+  <div class="proyects__container" #container>
     <app-proyect-item
       *ngFor="let proyect of proyects"
+      #project
+      class="project"
       [proyect]="proyect"
     ></app-proyect-item>
   </div>

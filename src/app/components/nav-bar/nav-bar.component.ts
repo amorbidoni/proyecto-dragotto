@@ -28,10 +28,10 @@ export class NavBarComponent implements OnInit {
       name: 'INICIO',
       route: ['/main', 'navigation'],
     },
-    // {
-    //   name: 'Proyectos',
-    //   route: ['/main', 'proyects'],
-    // },
+    {
+      name: 'Proyectos',
+      route: ['/main', 'proyects'],
+    },
     // {
     //   name: 'PROYECTOS',
     //   route: ['/path'],
