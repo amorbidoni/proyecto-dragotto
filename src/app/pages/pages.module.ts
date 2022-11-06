@@ -8,6 +8,7 @@ import { ProyectsComponent } from './proyects/proyects.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ProyectItemComponent } from './proyects/proyectItem.component';
 import { ContactComponent } from './contact/contact.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { ContactComponent } from './contact/contact.component';
     ProyectItemComponent,
     ContactComponent,
   ],
-  imports: [CommonModule, PagesRoutingModule, ComponentsModule],
+  imports: [CommonModule, PagesRoutingModule, ComponentsModule, SharedModule],
   exports: [MainComponent],
 })
 export class PagesModule {}

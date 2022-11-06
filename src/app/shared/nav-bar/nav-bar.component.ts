@@ -25,12 +25,49 @@ export class NavBarComponent implements OnInit {
   handleNavBtnAnimation() {}
   navBarLinks = [
     {
-      name: 'INICIO',
+      name: 'inicio',
+      nameBold:'',
       route: ['/main', 'navigation'],
     },
     {
-      name: 'Proyectos',
+      name: 'arquitectura',
+      nameBold:'',
       route: ['/main', 'proyects'],
+    },
+    {
+      name: 'de',
+      nameBold:'madera',
+      route: ['/main', ''],
+    },
+    {
+      name: 'investigación',
+      nameBold:'',
+      route: ['/main', ''],
+    },
+    {
+      name: 'economía',
+      nameBold:'circlar',
+      route: ['/main', ''],
+    },
+    {
+      name: 'cooperativa',
+      nameBold:'hormiga',
+      route: ['/main', ''],
+    },
+    {
+      name: 'todo',
+      nameBold:'',
+      route: ['/main', ''],
+    },
+    {
+      name: 'construido',
+      nameBold:'',
+      route: ['/main', ''],
+    },
+    {
+      name: 'en',
+      nameBold:'equipo',
+      route: ['/main', ''],
     },
     // {
     //   name: 'PROYECTOS',
@@ -38,6 +75,7 @@ export class NavBarComponent implements OnInit {
     // },
     {
       name: 'CONTACTO',
+      nameBold:'',
       route: ['/main', 'contact'],
     },
   ];

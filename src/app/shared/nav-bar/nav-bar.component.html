@@ -26,9 +26,10 @@
         <a
           [routerLink]="link.route"
           [style.color]="isColorWhite ? 'white' : 'inherit'"
-          [class]="isColorWhite ? 'line line-white' : 'line line-black'"
-          >{{ link.name }}</a
-        >
+          [class]="isColorWhite ? 'line line-white' : 'line line-black'">
+          
+          <span>{{ link.name }}</span><b>{{link.nameBold}}</b>
+          </a>
       </li>
     </ul>
   </nav>
@@ -42,9 +43,10 @@
         <a
           [routerLink]="link.route"
           [style.color]="isColorWhite ? 'white' : 'inherit'"
-          [class]="isColorWhite ? 'line line-white' : 'line line-black'"
-          >{{ link.name }}</a
-        >
+          [class]="isColorWhite ? 'line line-white' : 'line line-black'">
+          
+          <span>{{ link.name }}</span><b>{{link.nameBold}}</b>
+        </a>
       </li>
     </ul>
   </nav>
