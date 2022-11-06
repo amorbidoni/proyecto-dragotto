@@ -52,8 +52,18 @@ export class ProyectsService {
       name: '',
     },
     {
-      id: '7',
+      id: '8',
       imgeUrl: '../../assets/proyects/canasto.png',
+      name: '',
+    },
+    {
+      id: '9',
+      imgeUrl: '../../assets/proyects/canasto.png',
+      name: '',
+    },
+    {
+      id: '10',
+      imgeUrl: '../../assets/proyects/proyects-03.jpg',
       name: '',
     },
   ];

@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  OnDestroy,
   OnInit,
   ViewChild,
   ViewChildren,
@@ -10,6 +11,7 @@ import { ProyectsService } from '../../services/proyects.service';
 import { Projects } from '../../models/projects.model';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { QueryList } from '@angular/core';
 
 
 @Component({
@@ -17,46 +19,49 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   templateUrl: './proyects.component.html',
   styleUrls: ['./proyects.component.scss'],
 })
-export class ProyectsComponent implements OnInit, AfterViewInit {
-  constructor(private ProyectsService: ProyectsService) {}
-  ngAfterViewInit(): void {
-  
-  }
+export class ProyectsComponent implements OnInit, OnDestroy {
 
-  projects: Projects[] = []
+  @ViewChildren('project') projectQueryList!: QueryList<ElementRef>;
   @ViewChild('container') container!: ElementRef;
+
+  constructor(private ProyectsService: ProyectsService) {}
+  
+  ngOnDestroy(): void {
+    ScrollTrigger.disable();
+  }
+  
+  
+  projects: Projects[] = []
   ngOnInit() {
     this.projects = this.ProyectsService.getAllProyects();
     gsap.registerPlugin(ScrollTrigger);
     setTimeout(() => {
-      console.log(gsap.utils.toArray('.project'))
-      
+      console.log()
+      ScrollTrigger.enable();
+      ScrollTrigger.refresh();
+      this.startScrollTriggerAnimation();
     }, 1);
-    console.log(gsap.utils.toArray('.project'))
+ 
   }
 
 
 
   startScrollTriggerAnimation(){
-
-    let projects = gsap.utils.toArray('.project');
-    let container: any = document.querySelector('.proyects__container')!;
-    
-    gsap.to(projects, {
-      xPercent: -100 * (this.projects.length - 1),
+    let projectsContainers = this.projectQueryList.map(item =>item.nativeElement);
+    let container: any = this.container.nativeElement;
+    gsap.to(projectsContainers, {
+      xPercent: -100 * (projectsContainers.length - 1),
       ease: 'none',
       scrollTrigger: {
-        trigger: '.proyects__container',
+        trigger: '.projects__container',
         pin: true,
         scrub: 1,
-        snap: 1 / (this.projects.length - 1),
-        start: '-100px',
-        end: () => '+=' + container.offsetHeight,
+        snap: 1 / (projectsContainers.length - 1),
+        start: 'top 100px',
+        end:()=> '+=' + container.offsetWidth,
+        markers:true,
       },
     });
-
-
-
   }
 
 

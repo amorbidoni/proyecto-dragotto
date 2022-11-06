@@ -8,9 +8,7 @@
   box-sizing: border-box;
   overflow-x: hidden;
   overscroll-behavior: none;
-  @include respond(tab-land) {
-    overflow-y: hidden;
-  }
+
   &__container {
     display: grid;
     grid-template-columns: 1fr;
@@ -32,7 +30,7 @@
   right: 0;
   z-index: 1000;
 }
-.project {
+.project__item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,14 +43,14 @@
     width: auto;
     height: 500px;
   }
-  &__detail {
+  &--detail {
     font-size: 1.5rem;
     a {
       cursor: pointer;
     }
   }
   box-sizing: border-box;
-  &__img {
+  &--img {
     max-width: 100%;
     object-fit: contain;
     max-height: 100%;
