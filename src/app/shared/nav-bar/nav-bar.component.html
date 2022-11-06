@@ -1,0 +1,51 @@
+<div class="nav-bar-container">
+  <div class="toggle" *ngIf="!alwaysVisible">
+    <button class="toggle__btn" (click)="handleNavBar()">
+      <span
+        class="toggle__btn--line toggle__btn--line-1"
+        [ngClass]="menuOpen ? 'open' : ''"
+      ></span>
+      <span
+        class="toggle__btn--line toggle__btn--line-2"
+        [ngClass]="menuOpen ? 'open' : ''"
+      ></span>
+      <span
+        class="toggle__btn--line toggle__btn--line-3"
+        [ngClass]="menuOpen ? 'open' : ''"
+      ></span>
+    </button>
+  </div>
+  <div></div>
+  <nav class="nav" *ngIf="menuOpen" [@dropRightAnimation]>
+    <ul class="nav__list">
+      <li
+        *ngFor="let link of navBarLinks"
+        class="nav__item animated"
+        routerLinkActive="active-link"
+      >
+        <a
+          [routerLink]="link.route"
+          [style.color]="isColorWhite ? 'white' : 'inherit'"
+          [class]="isColorWhite ? 'line line-white' : 'line line-black'"
+          >{{ link.name }}</a
+        >
+      </li>
+    </ul>
+  </nav>
+  <nav class="nav-tablet" *ngIf="navTabletVisible">
+    <ul class="nav-tablet__list">
+      <li
+        *ngFor="let link of navBarLinks"
+        class="nav-tablet__item animated"
+        routerLinkActive="active-link"
+      >
+        <a
+          [routerLink]="link.route"
+          [style.color]="isColorWhite ? 'white' : 'inherit'"
+          [class]="isColorWhite ? 'line line-white' : 'line line-black'"
+          >{{ link.name }}</a
+        >
+      </li>
+    </ul>
+  </nav>
+</div>

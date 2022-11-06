@@ -5,12 +5,11 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
-    path: 'main',
-    component: MainComponent,
-    loadChildren: () =>
-      import('./pages/pages.module').then((m) => m.PagesModule),
+    path: '',
+    redirectTo: '/main',
+    pathMatch:'full'
   },
-  { path: '**', redirectTo: 'main/navigation' },
+  // { path: '**', redirectTo: 'main/navigation' },
 ];
 
 @NgModule({

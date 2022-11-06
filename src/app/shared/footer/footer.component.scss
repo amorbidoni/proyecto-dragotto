@@ -1,0 +1,42 @@
+.footer {
+  display: flex;
+  padding: 20px 5%;
+  background-color: #f7f7f7;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+  width: auto;
+  height: 100px;
+  font-family: "Roboto", sans-serif;
+}
+.icon {
+  width: 15px;
+  height: 15px;
+  fill: #3d3d3d;
+  margin-right: 5px;
+}
+.social--links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  .social-link {
+    margin: 0 10px;
+    width: 30px;
+    height: 30px;
+    fill: #3d3d3d;
+  }
+}
+.contact--info {
+  width: 55%;
+  ul {
+    padding: 0;
+    list-style: none;
+    li {
+      display: flex;
+      font-size: 1.3rem;
+      color: #878787;
+      p {
+        width: 200px;
+      }
+    }
+  }
+}

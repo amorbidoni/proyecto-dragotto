@@ -1,14 +1,14 @@
-<div class="proyects filter-animation">
+<div class="projects filter-animation">
   <div class="nav-bar">
     <app-nav-bar [alwaysVisible]="false"></app-nav-bar>
   </div>
   <div></div>
-  <div class="proyects__container" #container>
+  <div class="projects__container" #container>
     <app-proyect-item
-      *ngFor="let proyect of proyects"
+      *ngFor="let project of projects"
       #project
       class="project"
-      [proyect]="proyect"
+      [project]="project"
     ></app-proyect-item>
   </div>
 </div>

@@ -7,7 +7,7 @@ import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'main',
     component: MainComponent,
     children: [
       {
@@ -22,7 +22,7 @@ const routes: Routes = [
       {
         path: 'contact',
         component: ContactComponent,
-        data: { animation: 'ContactPage' },
+        // data: { animation: 'ContactPage' },
       },
       {
         path: '**',

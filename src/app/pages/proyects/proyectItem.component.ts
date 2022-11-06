@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProyectsInterface } from '../../models/proyects.model';
+import { Projects } from '../../models/projects.model';
 
 @Component({
   selector: 'app-proyect-item',
@@ -7,7 +7,7 @@ import { ProyectsInterface } from '../../models/proyects.model';
   styleUrls: ['./proyects.component.scss'],
 })
 export class ProyectItemComponent implements OnInit {
-  @Input() proyect: ProyectsInterface = new ProyectsInterface();
+  @Input() project!: Projects
   constructor() {}
 
   ngOnInit(): void {}

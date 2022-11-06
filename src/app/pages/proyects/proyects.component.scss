@@ -1,7 +1,7 @@
 @import "../../styles/abstract/variables";
 @import "../../styles/abstract/mixins";
 
-.proyects {
+.projects {
   background-color: $bg-light;
   padding-top: 50px;
   min-height: 100vh;
@@ -32,7 +32,7 @@
   right: 0;
   z-index: 1000;
 }
-.proyect {
+.project {
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -1,0 +1,153 @@
+@import "../../styles/abstract/variables";
+@import "../../styles/abstract/mixins";
+.nav-bar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  width: 100vw;
+  color: black;
+  font-size: 2rem;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+.toggle {
+  @include respond(tab-land) {
+    display: none;
+  }
+  &__btn {
+    background: transparent;
+    border: none;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    padding: 0 25px 0 5px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &--line {
+      width: 40px;
+      height: 3px;
+      background-color: black;
+      margin: 5px auto;
+      transition: transform 0.5s;
+      &-1 {
+        &.open {
+          transform: rotate(-45deg) translate(-4px, -4px);
+          transform-origin: right;
+        }
+      }
+      &-2 {
+        &.open {
+          opacity: 0;
+        }
+      }
+      &-3 {
+        &.open {
+          transform: rotate(45deg) translate(-2px, 6px);
+          transform-origin: right;
+        }
+      }
+    }
+  }
+}
+.nav {
+  position: relative;
+  z-index: 1000;
+  // background: linear-gradient(to left, rgba(black, 0.5) 30%, transparent 50%);
+  @include respond(tab-land) {
+    // background: linear-gradient(to left, rgba(black, 0.2) 20%, transparent 30%);
+  }
+  &__list {
+    list-style: none;
+    width: 100vw;
+    // backdrop-filter: blur(3px);
+    margin: 0;
+    padding: 10px 5% 10px 0;
+  }
+  &__item {
+    text-align: right;
+    margin: 5px 0;
+    cursor: pointer;
+    &.active-link {
+      position: relative;
+      .line::before {
+        content: "";
+        width: 22px;
+        height: 2px;
+        background-color: white;
+        position: absolute;
+        bottom: 0;
+        left: 6px;
+      }
+      .line-white::before {
+        background-color: white;
+      }
+      .line-black::before {
+        background-color: black;
+      }
+    }
+    a {
+      position: relative;
+      padding: 0 25px 0 5px;
+      list-style: none;
+      color: inherit;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 2rem;
+      background: transparent;
+      color: white;
+
+      @include respond(tab-land) {
+        font-size: 3.5rem;
+      }
+    }
+  }
+}
+.nav-tablet {
+  display: none;
+
+  @include respond(tab-land) {
+    display: block;
+    z-index: 1000;
+  }
+  position: relative;
+  z-index: 1000;
+  &__list {
+    list-style: none;
+    display: flex;
+  }
+  &__item {
+    width: fit-content;
+    margin: 5px 5px;
+    cursor: pointer;
+
+    &.active-link {
+      position: relative;
+      .line::before {
+        content: "";
+        width: 22px;
+        height: 2px;
+        background-color: white;
+        position: absolute;
+        bottom: 0;
+        left: 6px;
+      }
+      .line-white::before {
+        background-color: white;
+      }
+      .line-black::before {
+        background-color: black;
+      }
+    }
+    a {
+      padding: 0 25px 0 5px;
+      list-style: none;
+      color: inherit;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+}
