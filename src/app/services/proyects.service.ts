@@ -32,7 +32,7 @@ export class ProyectsService {
       name: '',
     },
     {
-      id: '4',
+      id: '11',
       imgeUrl: '../../assets/proyects/proyects-02.jpg',
       name: '',
     },

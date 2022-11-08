@@ -40,6 +40,7 @@ export class ProyectsComponent implements OnInit, OnDestroy {
       ScrollTrigger.enable();
       ScrollTrigger.refresh();
       this.startScrollTriggerAnimation();
+      this.scaleAnimation();
     }, 1);
  
   }
@@ -59,11 +60,27 @@ export class ProyectsComponent implements OnInit, OnDestroy {
         snap: 1 / (projectsContainers.length - 1),
         start: 'top 100px',
         end:()=> '+=' + container.offsetWidth,
-        markers:true,
+        // markers:true,
       },
     });
   }
-
+  scaleAnimation(){
+   
+    
+    gsap.to('#project-4', {
+      scrollTrigger:{
+       trigger:'#project-4',
+        scrub:1,
+        start:'bottom 170px',
+        end:'bottom 50px',
+        // markers:true
+      },
+      scale:2,
+      margin:'200px',
+      y:'-50px'
+    });
+ 
+  }
 
 
 
