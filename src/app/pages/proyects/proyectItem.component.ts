@@ -8,7 +8,10 @@ import { Projects } from '../../models/projects.model';
 })
 export class ProyectItemComponent implements OnInit {
   @Input() project!: Projects
+  projectNameArr!: string[];
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+      this.projectNameArr = this.project.name.split('')
+  }
 }

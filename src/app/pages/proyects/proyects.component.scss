@@ -1,6 +1,6 @@
 @import "../../styles/abstract/variables";
 @import "../../styles/abstract/mixins";
-
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
 .projects {
   background-color: $bg-light;
   padding-top: 50px;
@@ -39,6 +39,7 @@
   width: 100vw;
   padding: 20px;
   position: relative;
+
   @include respond(tab-land) {
     width: auto;
     height: 500px;
@@ -49,10 +50,18 @@
       cursor: pointer;
     }
   }
+  &--name{
+    font-family: 'Anonymous Pro';
+
+  }
   box-sizing: border-box;
   &--img {
     max-width: 100%;
     object-fit: contain;
     max-height: 100%;
+    cursor: pointer;
   }
 }
+
+
+
