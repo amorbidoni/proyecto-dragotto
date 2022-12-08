@@ -16,7 +16,7 @@ const routes: Routes = [
         data: { animation: 'HomePage' },
       },
       {
-        path: 'proyects',
+        path: 'projects',
         component: ProyectsComponent,
       },
       {

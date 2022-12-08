@@ -5,6 +5,7 @@ export class Projects {
     public name: string,
     public shortDescription?: string,
     public longDescriptioin?: string,
+    public filters?: string[]
   ){}
 
 }

@@ -13,9 +13,7 @@
   box-sizing: border-box;
 }
 .toggle {
-  @include respond(tab-land) {
-    display: none;
-  }
+
   &__btn {
     background: transparent;
     border: none;
@@ -55,7 +53,7 @@
 }
 .nav {
   position: relative;
-  z-index: 500;
+  z-index: 999;
   // background: linear-gradient(to left, rgba(black, 0.5) 30%, transparent 50%);
   @include respond(tab-land) {
     // background: linear-gradient(to left, rgba(black, 0.2) 20%, transparent 30%);
@@ -98,13 +96,11 @@
   }
 }
 .nav-tablet {
+
   display: none;
-  @include respond(tab-land) {
-    display: block;
-    z-index: 500;
-  }
-  position: relative;
   z-index: 500;
+  position: relative;
+
   &__list {
     list-style: none;
     display: flex;

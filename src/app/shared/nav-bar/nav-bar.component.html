@@ -19,17 +19,14 @@
   <nav class="nav" *ngIf="menuOpen" [@dropRightAnimation]>
     <ul class="nav__list">
       <li
-        *ngFor="let link of navBarLinks"
+        *ngFor="let linkItem of navBarLinks"
         class="nav__item animated"
         routerLinkActive="active-link"
       >
-        <a
-          [routerLink]="link.route"
-          [style.color]="isColorWhite ? 'white' : 'inherit'"
-          [class]="isColorWhite ? 'line line-white' : 'line line-black'">
-          
-          <span>{{ link.name }}</span><b>{{link.nameBold}}</b>
-          </a>
+        <app-nav-bar-item
+            [link]="linkItem"
+            [isColorWhite]="isColorWhite">
+        </app-nav-bar-item>
       </li>
     </ul>
   </nav>

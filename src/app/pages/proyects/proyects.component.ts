@@ -40,7 +40,6 @@ export class ProyectsComponent implements OnInit, OnDestroy {
       ScrollTrigger.enable();
       ScrollTrigger.refresh();
       this.startScrollTriggerAnimation();
-      this.scaleAnimation();
     }, 1);
  
   }
@@ -64,25 +63,6 @@ export class ProyectsComponent implements OnInit, OnDestroy {
       },
     });
   }
-  scaleAnimation(){
-   
-    
-    gsap.to('#project-4', {
-      scrollTrigger:{
-       trigger:'#project-4',
-        scrub:1,
-        start:'center 36%',
-        end:'bottom 100px',
-        markers:true
-      },
-      scale:2,
-      margin:'200px',
-      y:'-50px'
-    });
- 
-  }
-
-
 
 }
 
