@@ -7,11 +7,13 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
-import { ProyectsService } from '../../services/proyects.service';
+import { ProjectsService } from '../../services/projects.service';
 import { Projects } from '../../models/projects.model';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { QueryList } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DeviceDetector } from '../../services/device-detector.service';
 
 
 @Component({
@@ -24,7 +26,10 @@ export class ProyectsComponent implements OnInit, OnDestroy {
   @ViewChildren('project') projectQueryList!: QueryList<ElementRef>;
   @ViewChild('container') container!: ElementRef;
 
-  constructor(private ProyectsService: ProyectsService) {}
+  constructor(private projectsService: ProjectsService,
+              private route: ActivatedRoute,
+              private deviceDetector: DeviceDetector
+              ) {}
   
   ngOnDestroy(): void {
     ScrollTrigger.disable();
@@ -32,15 +37,24 @@ export class ProyectsComponent implements OnInit, OnDestroy {
   
   
   projects: Projects[] = []
+  filterParam!: 'demadera' | 'arquitectura' | 'investigacion' | 'cooperativahormiga' | 'todo' |  'enequipo' | null;
   ngOnInit() {
-    this.projects = this.ProyectsService.getAllProyects();
+      
+      this.projectsService.getAllProjectsFirestore().subscribe(res=>{
+        this.projects = res;
+        if(this.deviceDetector.isMobile) return;
+        setTimeout(() => {
+          ScrollTrigger.enable();
+          ScrollTrigger.refresh();
+          this.startScrollTriggerAnimation();
+        }, 1);
+      })
+    this.route.queryParams.subscribe(params => {
+      this.filterParam = params['filter'] || null;
+      // TODO: llamar a la funcion que filtre los resultados.
+    });
     gsap.registerPlugin(ScrollTrigger);
-    setTimeout(() => {
-      console.log()
-      ScrollTrigger.enable();
-      ScrollTrigger.refresh();
-      this.startScrollTriggerAnimation();
-    }, 1);
+
  
   }
 

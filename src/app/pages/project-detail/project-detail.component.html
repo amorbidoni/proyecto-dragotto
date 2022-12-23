@@ -1,0 +1,95 @@
+<div class="project-detail-component">
+  <app-arrow-back [routerLinkBack]="['/main/projects']" [queryParamsBack]="{ filter : selectedFilter} "> </app-arrow-back>
+  <div class="nav-bar">
+        <app-nav-bar [alwaysVisible]="false"></app-nav-bar>
+    </div>
+    <div *ngIf="project" class="project-detail">
+        <!-- <div class="project-detail__image">
+            <img [src]="project.imageUrl" [alt]="project.name">
+        </div> -->
+       
+          <swiper
+          style="--swiper-navigation-color: #fff;--swiper-pagination-color: #fff"
+          [spaceBetween]="10"
+          [navigation]="true"
+          [thumbs]="{ swiper: thumbsSwiper }"
+          class="mySwiper2"
+        >
+          <ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-1.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-2.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-3.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-4.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-5.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-6.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-7.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-8.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-9.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img src="https://swiperjs.com/demos/images/nature-10.jpg"
+          /></ng-template>
+        </swiper>
+        <swiper
+          (swiper)="thumbsSwiper = $event"
+          [spaceBetween]="10"
+          [slidesPerView]="4"
+          [freeMode]="true"
+          [watchSlidesProgress]="true"
+          class="mySwiper"
+        >
+          <ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-1.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-2.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-3.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-4.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-5.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-6.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-7.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-8.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img
+              src="https://swiperjs.com/demos/images/nature-9.jpg" /></ng-template
+          ><ng-template swiperSlide
+            ><img src="https://swiperjs.com/demos/images/nature-10.jpg"
+          /></ng-template>
+        </swiper>
+        <div class="project-detail__content">
+          <h3>Nombre del Proyecto</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia nisi, dolor voluptate eligendi odio quaerat fugiat provident recusandae doloribus, aperiam quis dolorum possimus dicta mollitia? Id exercitationem animi possimus fugit!
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab accusantium quae dolor iste beatae in ipsum impedit totam, velit aperiam delectus molestiae repellat consequatur possimus temporibus, sit iusto quisquam suscipit!
+          </p>
+        </div>
+    </div>
+</div>

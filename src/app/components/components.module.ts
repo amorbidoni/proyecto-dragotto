@@ -5,10 +5,11 @@ import { CarouselComponent } from './carousel/carousel.component';
 
 import { RouterModule } from '@angular/router';
 import { ModalComponent } from './modal/modal.component';
+import { ArrowBackComponent } from './arrow-back/arrow-back.component';
 
 @NgModule({
-  declarations: [ CarouselComponent, ModalComponent],
+  declarations: [ CarouselComponent, ModalComponent, ArrowBackComponent],
   imports: [CommonModule, RouterModule],
-  exports: [CarouselComponent],
+  exports: [CarouselComponent, ArrowBackComponent, ModalComponent ],
 })
 export class ComponentsModule {}

@@ -1,7 +1,7 @@
-<div class="project__item">
+<div class="project__item" [routerLink]="['../project-detail', project.id ]">
   <img
     class="project__item--img"
-    [src]="project.imgeUrl"
+    [src]="project.imageUrl"
     [alt]="'project' + project.id"
     [id]="'project-' + project.id "
   />

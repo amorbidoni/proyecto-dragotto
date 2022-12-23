@@ -4,6 +4,7 @@ import { MainComponent } from './main/main.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ProyectsComponent } from './proyects/proyects.component';
 import { ContactComponent } from './contact/contact.component';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
         path: 'contact',
         component: ContactComponent,
         // data: { animation: 'ContactPage' },
+      },
+      {
+        path: 'project-detail/:id',
+        component: ProjectDetailComponent,
       },
       {
         path: '**',

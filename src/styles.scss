@@ -1,6 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./app/styles/main";
+
+
 body {
   overscroll-behavior: none;
   height: 100vh;
+}
+.nav-bar {
+  position: fixed;
+  top: 20px;
+  right: 0;
+  z-index: 900;
+}
+.back{
+  z-index: 1000;
+  position: absolute;
+  top: 17px;
+  left: 5%;
 }

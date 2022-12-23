@@ -9,7 +9,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ProyectItemComponent } from './proyects/proyectItem.component';
 import { ContactComponent } from './contact/contact.component';
 import { SharedModule } from '../shared/shared.module';
-
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { SwiperModule } from 'swiper/angular';
 @NgModule({
   declarations: [
     MainComponent,
@@ -17,8 +18,9 @@ import { SharedModule } from '../shared/shared.module';
     NavigationComponent,
     ProyectItemComponent,
     ContactComponent,
+    ProjectDetailComponent,
   ],
-  imports: [CommonModule, PagesRoutingModule, ComponentsModule, SharedModule],
+  imports: [CommonModule, PagesRoutingModule, ComponentsModule, SharedModule,SwiperModule],
   exports: [MainComponent],
 })
 export class PagesModule {}
