@@ -1,9 +1,18 @@
 
-
+.project-detail{
+  display: grid;
+  grid-template-columns: 65% 35%;
+  margin-top: 30px;
+  &__content{
+    align-self: baseline;
+  }
+}
 .project-detail-component{
     padding-top: 100px;
+
+
 }
-.project-detail{
+.project-detail__swiper{
     padding: 0 5%;
     &__image{
         display: flex;
@@ -94,3 +103,5 @@
   height: 100%;
   object-fit: cover;
 }
+
+

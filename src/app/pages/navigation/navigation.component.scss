@@ -1,8 +1,9 @@
 @import "../../styles/abstract/mixins";
 .nav-bar {
   position: absolute;
-  bottom: 50px;
+  top: 40%;
   right: 0;
+  height: fit-content;
 }
 .title {
   position: absolute;
