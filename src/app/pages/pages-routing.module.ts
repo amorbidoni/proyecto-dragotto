@@ -12,18 +12,12 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       {
-        path: 'navigation',
-        component: NavigationComponent,
-        data: { animation: 'HomePage' },
-      },
-      {
         path: 'projects',
         component: ProyectsComponent,
       },
       {
         path: 'contact',
         component: ContactComponent,
-        // data: { animation: 'ContactPage' },
       },
       {
         path: 'project-detail/:id',
@@ -31,14 +25,18 @@ const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'main/navigation',
+        redirectTo: 'navigation',
       },
-    
+      
     ],
   },
   {
+    path: 'navigation',
+    component: NavigationComponent,
+  },
+  {
     path: '**',
-    redirectTo: 'main/navigation',
+    redirectTo: 'navigation',
   },
 ];
 

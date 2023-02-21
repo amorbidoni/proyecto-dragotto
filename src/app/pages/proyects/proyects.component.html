@@ -2,10 +2,9 @@
   <div class="nav-bar">
     <app-nav-bar [alwaysVisible]="false"></app-nav-bar>
   </div>
-  <div></div>
   <div class="projects__container" #container>
-    <div class="project"  *ngFor="let project of projects" #project >
-        <app-proyect-item [project]="project"></app-proyect-item>
+    <div class="project" *ngFor="let project of projects" #project>
+      <app-proyect-item [project]="project"></app-proyect-item>
     </div>
   </div>
 </div>

@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  HostListener,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -35,30 +36,39 @@ export class ProyectsComponent implements OnInit, OnDestroy {
     ScrollTrigger.disable();
   }
   
+  screenWidth!:number;
+  @HostListener('window:resize', ['$event'])
+  onResize(event?:any) {
+    this.screenWidth = window.innerWidth;
+    this.getProjects();
+  }
   
   projects: Projects[] = []
   filterParam!: 'demadera' | 'arquitectura' | 'investigacion' | 'cooperativahormiga' | 'todo' |  'enequipo' | null;
   ngOnInit() {
-      
-      this.projectsService.getAllProjectsFirestore().subscribe(res=>{
-        this.projects = res;
-        if(this.deviceDetector.isMobile) return;
-        setTimeout(() => {
-          ScrollTrigger.enable();
-          ScrollTrigger.refresh();
-          this.startScrollTriggerAnimation();
-        }, 1);
-      })
+    this.onResize();
     this.route.queryParams.subscribe(params => {
       this.filterParam = params['filter'] || null;
-      // TODO: llamar a la funcion que filtre los resultados.
+      this.getProjects();
     });
     gsap.registerPlugin(ScrollTrigger);
-
- 
+    this.getProjects();
   }
 
-
+  getProjects(){
+    this.projectsService.getAllProjectsFirestore().subscribe(res=>{
+      this.projects = res;
+      if(this.filterParam){
+        this.filterProjects(this.filterParam);
+      }
+      if(this.deviceDetector.isMobile || this.screenWidth < 1020) return;
+      setTimeout(() => {
+        ScrollTrigger.enable();
+        ScrollTrigger.refresh();
+        this.startScrollTriggerAnimation();
+      }, 1);
+    })
+  }
 
   startScrollTriggerAnimation(){
     let projectsContainers = this.projectQueryList.map(item =>item.nativeElement);
@@ -77,6 +87,9 @@ export class ProyectsComponent implements OnInit, OnDestroy {
       },
     });
   }
-
+  filterProjects(filterParam:string){
+    this.projects = this.projects.filter(item=>(item.filters?.includes(filterParam)));
+    console.log(filterParam, this.projects)
+  }
 }
 
