@@ -1,6 +1,8 @@
 <div class="project-detail-component">
-  <app-arrow-back [routerLinkBack]="['/main/projects']" [queryParamsBack]="{ filter : selectedFilter} "> </app-arrow-back>
+  <app-arrow-back [routerLinkBack]="['/main/projects']" [queryParamsBack]="{ filter : selectedFilter} ">
+  </app-arrow-back>
   <div class="nav-bar">
+<<<<<<< HEAD
         <app-nav-bar [alwaysVisible]="false"></app-nav-bar>
     </div>
     <div class="project-detail">
@@ -17,6 +19,30 @@
             </ng-template>
           </swiper>
           <!-- <swiper
+=======
+    <app-nav-bar [alwaysVisible]="false"></app-nav-bar>
+  </div>
+  <div class="project-detail">
+    <div *ngIf="project" class="project-detail__swiper">
+      <!-- <div class="project-detail__image">
+              <img [src]="project.imageUrl" [alt]="project.name">
+          </div> -->
+
+      <ng-container *ngIf="loading; else elseTemplate">
+        <swiper style="--swiper-navigation-color: #fff;--swiper-pagination-color: #fff" [spaceBetween]="10"
+          [navigation]="true" [thumbs]="{ swiper: thumbsSwiper }" class="mySwiper2">
+          <ng-template swiperSlide *ngFor="let item of project.gallery">
+            <img [src]="item" />
+          </ng-template>
+        </swiper>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <p>Cargando...</p>
+      </ng-template>
+
+
+      <!-- <swipert
+>>>>>>> 272e65afb8cc123bf78763e4b0e50356b3f62442
             (swiper)="thumbsSwiper = $event"
             [spaceBetween]="10"
             [slidesPerView]="4"
@@ -29,6 +55,7 @@
                 src="https://swiperjs.com/demos/images/nature-1.jpg" /></ng-template
             >
           </swiper> -->
+<<<<<<< HEAD
         
         </div>
         <div class="project-detail__content">
@@ -37,7 +64,20 @@
             {{ paragraph }}
           </p>
         </div>
+=======
+>>>>>>> 272e65afb8cc123bf78763e4b0e50356b3f62442
 
     </div>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/mA2P2p7f6EA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div class="project-detail__content">
+      <h3>{{project.name}}</h3>
+      <div *ngIf="project.description">
+        <p *ngFor="let paragraph of project.description">{{ paragraph }}</p>
+      </div>
+    </div>
+
+  </div>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/mA2P2p7f6EA" title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
 </div>

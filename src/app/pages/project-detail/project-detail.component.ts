@@ -22,6 +22,7 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
   public routeSub!:Subscription;
   public selectedFilterSub!:Subscription;
   public selectedFilter!:FitlerParams;
+  public loading:boolean = true;
   thumbsSwiper: any;
   constructor(private projectService : ProjectsService,
               private route: ActivatedRoute,
@@ -49,6 +50,7 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
   getProject(id:string){
       this.projectService.getAllProjectsFirestore().subscribe(res=>{
       this.project = res.find((item:any)=>item.id === id);
+      this.loading = true;
    })
   }
   // config: SwiperOptions = {
