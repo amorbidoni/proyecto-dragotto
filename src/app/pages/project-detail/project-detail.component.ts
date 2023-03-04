@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import SwiperCore, { FreeMode, Navigation, Thumbs, SwiperOptions } from "swiper";
 import { FilterService } from '../../services/filter.service';
 import { FitlerParams } from '../../interfaces/navBarLinks';
+import { DomSanitizer } from '@angular/platform-browser';
 // install Swiper modules
 SwiperCore.use([FreeMode, Navigation, Thumbs]);
 
@@ -23,10 +24,14 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
   public selectedFilterSub!:Subscription;
   public selectedFilter!:FitlerParams;
   public loading:boolean = true;
+  public loadingVideo:boolean = true;
   thumbsSwiper: any;
   constructor(private projectService : ProjectsService,
               private route: ActivatedRoute,
-              private filterService : FilterService ) { 
+              private filterService : FilterService,
+               private _sanitizer: DomSanitizer
+
+               ) { 
   }
   ngOnDestroy(): void {
     this.routeSub.unsubscribe();
@@ -42,29 +47,44 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
     this.selectedFilterSub = this.filterService.selectedFilter$.subscribe(
       res=> {
         this.selectedFilter = res;
+      
       }
     )
-  
   }
 
   getProject(id:string){
       this.projectService.getAllProjectsFirestore().subscribe(res=>{
       this.project = res.find((item:any)=>item.id === id);
       this.loading = true;
+      console.log(this.project)
+      // this.videoIframeStr = this.project.videos![0] 
    })
   }
-  // config: SwiperOptions = {
-  //   slidesPerView: 3,
-  //   spaceBetween: 50,
-  //   navigation: true,
-  //   pagination: { clickable: true },
-  //   scrollbar: { draggable: true },
-  // };
-  // onSwiper([swiper]:any) {
-  //   console.log(swiper);
-  // }
-  // onSlideChange() {
-  //   console.log('slide change');
-  // }
+  config: SwiperOptions = {
+    slidesPerView: 3,
+    spaceBetween: 50,
+    navigation: true,
+    pagination: { clickable: true },
+    scrollbar: { draggable: true },
+  };
+  onSwiper([swiper]:any) {
+    console.log(swiper);
+  }
+  onSlideChange() {
+    console.log('slide change');
+  }
+
+getVideoIframe(url:string) {
+    let video, results;
+ 
+    if (url === null) {
+        return '';
+    }
+    results = url.match('[\\?&]v=([^&#]*)');
+    video   = (results === null) ? url : results[1];
+ 
+    return this._sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + video);   
+}
+
 }
 

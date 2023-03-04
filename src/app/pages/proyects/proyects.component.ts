@@ -89,7 +89,6 @@ export class ProyectsComponent implements OnInit, OnDestroy {
   }
   filterProjects(filterParam:string){
     this.projects = this.projects.filter(item=>(item.filters?.includes(filterParam)));
-    console.log(filterParam, this.projects)
   }
 }
 

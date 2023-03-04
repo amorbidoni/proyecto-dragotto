@@ -1,5 +1,5 @@
 <div class="nav-bar-container">
-  <div class="toggle" *ngIf="!alwaysVisible">
+  <!-- <div class="toggle" *ngIf="!alwaysVisible">
     <button class="toggle__btn" (click)="handleNavBar()">
       <span
         class="toggle__btn--line toggle__btn--line-1"
@@ -14,7 +14,7 @@
         [ngClass]="menuOpen ? 'open' : ''"
       ></span>
     </button>
-  </div>
+  </div> -->
   <div></div>
   <nav class="nav" *ngIf="menuOpen" [@dropRightAnimation]>
     <ul class="nav__list">
@@ -36,12 +36,12 @@
         *ngFor="let link of navBarLinks"
         class="nav-tablet__item animated"
         routerLinkActive="active-link"
-      >
+        >
         <a
           [routerLink]="link.route"
           [style.color]="isColorWhite ? 'white' : 'inherit'"
-          [class]="isColorWhite ? 'line line-white' : 'line line-black'">
-          
+          [class]="getAcvtiveLinkClass(link.fitlerParams)"     
+          [queryParams]=" link.fitlerParams ? { filter : link.fitlerParams} : null ">
           <span>{{ link.name }}</span><b>{{link.nameBold}}</b>
         </a>
       </li>
