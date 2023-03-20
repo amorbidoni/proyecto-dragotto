@@ -38,3 +38,12 @@
   top: 0;
   left: 0;
 }
+.navi{
+  position: relative;
+  z-index: 900;
+  width: 400px;
+  justify-self: end;
+  @include respond(tab-land){
+    margin-right: 20rem;
+  }
+}
