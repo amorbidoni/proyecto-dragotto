@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { DropRightAnimation } from '../../animations/DropRightAnimation';
 import { OverlayAnimation } from '../../animations/OverlayAnimation';
 import { NavBarService } from '../../services/nav-bar.service';
@@ -12,19 +12,22 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./nav-bar.component.scss'],
   animations: [DropRightAnimation, OverlayAnimation],
 })
-export class NavBarComponent implements OnInit {
-  @Input() alwaysVisible: boolean = true;
+export class NavBarComponent implements OnInit, OnDestroy {
   @Input() navTabletVisible: boolean = true;
   @Input() isColorWhite: boolean = false;
+  @Input() isColumn:boolean = false;
+  @Input() mobileType:boolean = true;
   public navBarLinks: navBarLinks[] = this.navBarService.getNavBarLinks;
-  private routeSub !:Subscription;
+  public routeSub !:Subscription;
   private filterParam !:string;
   public linkClass:string = '';
   menuOpen: boolean = false;
   constructor(private navBarService : NavBarService, 
               private route: ActivatedRoute) {}
+  ngOnDestroy(): void {
+    this.routeSub.unsubscribe();
+  }
   ngOnInit(): void {
-    this.alwaysVisible ? (this.menuOpen = true) : (this.menuOpen = false);
     this.routeSub = this.route.params.subscribe(params => {
       this.filterParam = params['filter'] || null;
     });

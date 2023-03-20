@@ -12,95 +12,33 @@
   font-weight: 400;
   box-sizing: border-box;
 }
-// .toggle {
 
-//   &__btn {
-//     background: transparent;
-//     border: none;
-//     font-size: inherit;
-//     font-weight: inherit;
-//     color: inherit;
-//     padding: 0 25px 0 5px;
-//     text-transform: uppercase;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     &--line {
-//       width: 40px;
-//       height: 3px;
-//       background-color: black;
-//       margin: 5px auto;
-//       transition: transform 0.5s;
-//       &-1 {
-//         &.open {
-//           transform: rotate(-45deg) translate(-4px, -4px);
-//           transform-origin: right;
-//         }
-//       }
-//       &-2 {
-//         &.open {
-//           opacity: 0;
-//         }
-//       }
-//       &-3 {
-//         &.open {
-//           transform: rotate(45deg) translate(-2px, 6px);
-//           transform-origin: right;
-//         }
-//       }
-//     }
-//   }
-// }
-.nav {
-  position: relative;
-  z-index: 999;
-  // background: linear-gradient(to left, rgba(black, 0.5) 30%, transparent 50%);
-  @include respond(tab-land) {
-    // background: linear-gradient(to left, rgba(black, 0.2) 20%, transparent 30%);
-  }
-  &__list {
-    list-style: none;
-    width: 100vw;
-    margin: 0;
-    padding: 10px 5% 10px 0;
-  }
-  &__item {
-    text-align: right;
-    margin: 5px 6%;
-    cursor: pointer;
-    &.active-link {
-      position: relative;
-      .line::before {
-        content: "";
-        width: 22px;
-        height: 2px;
-        background-color: white;
-        position: absolute;
-        bottom: 0;
-        left: 6px;
-      }
-      .line-white::before {
-        background-color: white;
-      }
-      .line-black::before {
-        background-color: black;
-      }
-    }
-    a {
-      position: relative;
-      font-size: 2rem;
-      background: transparent;
-      color: white;
 
-    }
-  }
-}
 .nav-tablet {
   z-index: 500;
   position: relative;
+  &.mobile{
+    .nav-tablet__list{
+      display: grid;
+      grid-template-columns: 180px 180px;
+      gap: 5px;
+      margin-bottom: 5rem;
+      @include respond(tab-port){
+        display: flex;
+      }
+    }
+  }
   &__list {
     list-style: none;
     display: flex;
+    &.column{
+      flex-direction: column;
+      align-items: flex-end ;
+      margin-right: 5rem;
+      a{
+        font-size: 2.4rem !important;
+      }
+    }
   }
   &__item {
     width: fit-content;

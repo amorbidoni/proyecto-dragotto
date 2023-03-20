@@ -2,36 +2,29 @@
   <app-arrow-back [routerLinkBack]="['/main/projects']" [queryParamsBack]="{ filter : selectedFilter} ">
   </app-arrow-back>
   <div class="nav-bar">
-    <app-nav-bar [alwaysVisible]="false"></app-nav-bar>
+    <app-nav-bar></app-nav-bar>
   </div>
   <div class="project-detail">
     <div *ngIf="project" class="project-detail__swiper">
       <ng-container *ngIf="loading; else elseTemplate">
-        <swiper style="--swiper-navigation-color: #fff;--swiper-pagination-color: #fff" [spaceBetween]="10"
-          [navigation]="true" [thumbs]="{ swiper: thumbsSwiper }" class="mySwiper2">
+        <swiper style="--swiper-navigation-color: #fff;--swiper-pagination-color: #fff" 
+                [spaceBetween]="10"
+                [navigation]="true" 
+                [thumbs]="{ swiper: thumbsSwiper }" 
+                class="mySwiper2"
+                [config]="config"   
+                >
           <ng-template swiperSlide *ngFor="let item of project.gallery">
             <img [src]="item" [alt]="'foto de ' + project.name"/>
           </ng-template>
-        </swiper>
+        </swiper> 
+   
       </ng-container>
       <ng-template #elseTemplate>
         <p>Cargando...</p>
       </ng-template>
 
 
-      <swiper
-            (swiper)="thumbsSwiper = $event"
-            [spaceBetween]="10"
-            [slidesPerView]="4"
-            [freeMode]="true"
-            [watchSlidesProgress]="true"
-            class="mySwiper"
-          >
-            <ng-template swiperSlide
-            *ngFor="let item of project.gallery">
-              <img [src]="item" />
-            </ng-template>
-    </swiper> 
 
     </div>
     <div class="project-detail__content">

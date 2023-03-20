@@ -37,7 +37,6 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
     this.routeSub.unsubscribe();
     this.selectedFilterSub.unsubscribe();
   }
-
               
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(params => {
@@ -61,18 +60,13 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
    })
   }
   config: SwiperOptions = {
-    slidesPerView: 3,
     spaceBetween: 50,
     navigation: true,
-    pagination: { clickable: true },
+    pagination: { clickable: true, 
+                  dynamicBullets: true },
     scrollbar: { draggable: true },
   };
-  onSwiper([swiper]:any) {
-    console.log(swiper);
-  }
-  onSlideChange() {
-    console.log('slide change');
-  }
+
 
 getVideoIframe(url:string) {
     let video, results;
